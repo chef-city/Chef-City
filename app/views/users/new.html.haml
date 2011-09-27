@@ -1,0 +1,9 @@
+- form_for @user, :remote=>true, :html => {:data_type => 'html', :id => 'create_user_form'} do |f|
+  Email:
+  = f.text_field :email
+  %br
+  Password:
+  = f.text_field :password
+  = f.submit
+
+#login_status
