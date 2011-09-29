@@ -1,0 +1,8 @@
+#articles
+  %h2
+    Blog posts
+  #content
+    %div{'style'=>'{float:right;}'}
+      = link_to 'Create_new', new_article_path
+    - @articles.each do |article|
+      = link_to article.title, article_path(article)

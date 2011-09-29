@@ -1,0 +1,18 @@
+#articles
+  #main
+    %h2
+      Write a Blog Post
+    = form_for @article, :remote=>true, :method=>:post do |f|
+      %label
+        Title
+        .label_desc
+          The title of your post
+      = f.text_field :title
+      %label
+        Content
+        .label_desc
+          The meat of your post
+      = f.text_area :content
+      .submit
+        = f.submit
+    #save_status

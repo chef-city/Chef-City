@@ -1,0 +1,18 @@
+#recipes
+  #main
+    %h2
+      Create a Recipe
+    = form_for @recipe, :remote=>true, :method=>:post do |f|
+      %label
+        Name
+        .label_desc
+          The name of the dish
+      = f.text_field :name
+      %label
+        Contents
+        .label_desc
+          The ingredients and instructions
+      = f.text_area :contents
+      .submit
+        = f.submit
+    #save_status

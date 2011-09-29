@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    puts "user: #{@user.email}"
-    puts "password: #{@user.password}"
     if @user.save
       @login_status = "Success!"
     else
@@ -20,16 +18,16 @@ class UsersController < ApplicationController
 
 
   def login
-    if request.post? and params[:user]
-      @current_user = User.where(:email=>params[:user][:email]).first
-      puts "user pass: #{@current_user.password}"
-
-      if @current_user and @current_user.password_matches?(params[:user][:password])
+    if request.post? and params[:email]
+      @current_user = User.where(:email => params[:email]).first
+      logger.debug "email: #{params[:email]} current_user id: #{@current_user.id}"
+      if @current_user and @current_user.password_matches?(params[:password])
         session[:user] = @current_user.id
       else
         flash[:notice] = "Wrong email/password combination. Please try again."
       end
 
+      logger.debug "login set session id to #{session[:user]}"
       redirect_to :back
     end
   end

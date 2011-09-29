@@ -1,0 +1,7 @@
+#recipes
+  %h2
+    Recipes
+  #content
+    %div{'style'=>'{float:right;}'}
+      = link_to 'Create_new', new_recipe_path
+    = render :partial=>'recipe', :collection=>@recipes

@@ -17,7 +17,7 @@ describe UsersController  do
     user.save
     back_page = 'http://www.test.com'
     request.env["HTTP_REFERER"] = back_page
-    post :login, :user=>{:email=>user.email, :password=>'password'}
+    post :login, {:email=>user.email, :password=>'password'}
     session[:user].should == user.id
     response.should redirect_to(back_page)
   end
@@ -27,7 +27,7 @@ describe UsersController  do
     user.save
     back_page = 'http://www.test.com'
     request.env["HTTP_REFERER"] = back_page
-    session[:user] == user.id
+    session[:user] = user.id
     post :logout, :user=>{:email=>user.email, :password=>'password'}
     session.empty?.should be_true
   end
