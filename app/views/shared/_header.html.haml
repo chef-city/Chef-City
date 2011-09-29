@@ -1,0 +1,15 @@
+#header
+  #link
+    = link_to 'Blog Posts', articles_path
+  #link
+    = link_to 'Recipes', recipes_path
+  - if @current_user
+    #user_link
+      = link_to 'Logout', logout_path
+  - else
+    #user_link
+      = link_to 'Login', login_path
+    #user_link  
+      = link_to 'Register', new_users_path
+
+

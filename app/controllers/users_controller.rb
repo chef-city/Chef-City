@@ -1,19 +1,21 @@
 class UsersController < ApplicationController
+  respond_to :js, :html
+  
   def create
     @user = User.new(params[:user])
+    puts "user: #{@user.email}"
+    puts "password: #{@user.password}"
     if @user.save
-      respond_with do |format|
-        format.html do
-          if request.xhr?
-            render :update
-          end
-        end
-      end
+      @login_status = "Success!"
+    else
+      @login_status = "Something went wrong! Please try again later!"
     end
+    respond_with(@login_status, :layout=> !request.xhr?)   
   end
 
+
   def new
-    
+    @user = User.new   
   end
 
 

@@ -1,0 +1,37 @@
+$primary-1: #3900FF;
+$primary-2: #4E4080;
+$primary-3: #11004D;
+$primary-4: #9C80FF;
+$primary-5: #EBE6FF;
+$secondary-a-1: #D3FF00;
+$secondary-a-2: #758040;
+$secondary-a-3: #3F4D00;
+$secondary-a-4: #E9FF80;
+$secondary-a-5: #FBFFE6;
+$secondary-b-1: #FF8E00;
+$secondary-b-2: #806340;
+$secondary-b-3: #4D2B00;
+$secondary-b-4: #FFC780;
+$secondary-b-5: #FFF4E6;
+$header-height: 50px;
+
+#header {
+    background: $primary-3;
+    height: $header-height;
+    line-height: $header-height/2 + 10px;
+    margin: 0px;
+    #link {
+        color: $secondary-b-5;
+        padding-right: 30px;
+        display: inline;
+    }
+    #user_link {
+        float: right;
+        padding-left: 30px;
+        display: inline;
+    }
+    a {
+        color: $secondary-b-5;
+    }
+}
+

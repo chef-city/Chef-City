@@ -6,7 +6,7 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,9 +27,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
+group :deveopment, :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end

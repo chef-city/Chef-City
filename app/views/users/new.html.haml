@@ -1,9 +1,18 @@
-- form_for @user, :remote=>true, :html => {:data_type => 'html', :id => 'create_user_form'} do |f|
-  Email:
-  = f.text_field :email
-  %br
-  Password:
-  = f.text_field :password
-  = f.submit
-
-#login_status
+#users
+  #main
+    %h2
+      Make a Chef City account!
+    = form_for @user, :remote=>true, :method=>:post do |f|
+      %label
+        Email
+        .label_desc
+          Enter your email address
+      = f.text_field :email
+      %label
+        Password
+        .label_desc
+          Password must be at least 8 characters
+      = f.text_field :password
+      .submit
+        = f.submit
+    #register_status

@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+$primary-1: #3900FF;
+$primary-2: #4E4080;
+$primary-3: #11004D;
+$primary-4: #9C80FF;
+$primary-5: #EBE6FF;
+$secondary-a-1: #D3FF00;
+$secondary-a-2: #758040;
+$secondary-a-3: #3F4D00;
+$secondary-a-4: #E9FF80;
+$secondary-a-5: #FBFFE6;
+$secondary-b-1: #FF8E00;
+$secondary-b-2: #806340;
+$secondary-b-3: #4D2B00;
+$secondary-b-4: #FFC780;
+$secondary-b-5: #FFF4E6;
+$form_width: 400px;
+body {
+     background: $primary-2;
+     color: $secondary-a-4;
+}
+
+h2 {
+    color: $secondary-b-1;
+    width: $form_width;
+    text-align: center;
+}
+
+form {
+    width: $form_width;
+}
+
+label {
+    display:block;
+    font-weight:bold;
+    text-align:right;
+    width:140px;
+    float:left;
+}
+input {
+    float:left;
+    font-size:12px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    width:200px;
+    margin:2px 0 20px 10px;
+}
+
+.submit {
+    clear:both;
+    margin-left:140px;
+    width:125px;
+    height:31px;
+}
+.label_desc {
+    color: $secondary-b-4;
+    display:block;
+    font-size:11px;
+    font-weight:normal;
+    text-align:right;
+    width:140px;
+}
