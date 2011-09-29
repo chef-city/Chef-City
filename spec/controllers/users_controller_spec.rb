@@ -13,8 +13,22 @@ describe UsersController  do
   end
 
   it "should create a session with successful login" do
-    user = User.create!(:email=>'email@test.com', :password=>'password')
-    post :login, :user=>{:email=>user.email, :password=>user.password}
+    user = User.create(:email=>'email@test.com', :password=>'password')
+    user.save
+    back_page = 'http://www.test.com'
+    request.env["HTTP_REFERER"] = back_page
+    post :login, :user=>{:email=>user.email, :password=>'password'}
     session[:user].should == user.id
+    response.should redirect_to(back_page)
+  end
+
+  it "should clear the session on logout" do
+    user = User.create(:email=>'test@email.com', :password=>'password')
+    user.save
+    back_page = 'http://www.test.com'
+    request.env["HTTP_REFERER"] = back_page
+    session[:user] == user.id
+    post :logout, :user=>{:email=>user.email, :password=>'password'}
+    session.empty?.should be_true
   end
 end

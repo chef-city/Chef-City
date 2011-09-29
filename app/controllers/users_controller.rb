@@ -21,7 +21,9 @@ class UsersController < ApplicationController
 
   def login
     if request.post? and params[:user]
-      @current_user = User.where(:email=>params[:user][:email])
+      @current_user = User.where(:email=>params[:user][:email]).first
+      puts "user pass: #{@current_user.password}"
+
       if @current_user and @current_user.password_matches?(params[:user][:password])
         session[:user] = @current_user.id
       else
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
   def logout
     if session[:user]
       reset_session
-      redirect_to :back
     end
+    redirect_to :back
   end
 end

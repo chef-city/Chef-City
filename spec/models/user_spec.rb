@@ -14,7 +14,16 @@ describe User do
   end
 
   it "correctly encrypts the password" do
-    user = User.create!(:email=>'email@test.com', :password=>'password')
+    user = User.create(:email=>'email@test.com', :password=>'password')
+    user.save
     user.password.should_not  == 'email@test.com'
+    user.password.length.should > 0
+    user.salt.length.should > 0
+  end
+
+  it "correctly matches passwords" do
+    user = User.create(:email=>'email@test.com', :password=>'password')
+    user.save
+    user.password_matches?('password').should be_true
   end
 end
